@@ -628,9 +628,9 @@ source: https://huggingface.co/THUDM/chatglm3-6b/blob/main/tokenization_chatglm.
 register_conv_template(
     Conversation(
         name="chatglm3",
-        system_prompt="与user进行深度对话",#自定义本次训练
+        system_prompt="<|system|>与user进行深度对话",#自定义本次训练
         messages=[],
-        roles=("<|user|>", "<|assistant|>"),
+        roles=("<|user|>", "<|assistant|>","<|system|>"),
         prompt="<|user|>\n{query}<|assistant|>",
         sep="\n",
         stop_str="<|user|>",

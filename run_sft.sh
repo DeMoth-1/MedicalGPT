@@ -6,7 +6,7 @@ CUDA_VISIBLE_DEVICES=1 python supervised_finetuning.py \
     --template_name chatglm3 \
     --train_file_dir ./data/finetune \
     --validation_file_dir ./data/finetune \
-    --per_device_train_batch_size 4 \
+    --per_device_train_batch_size 2 \
     --per_device_eval_batch_size 4 \
     --do_train \
     --do_eval \
@@ -14,17 +14,17 @@ CUDA_VISIBLE_DEVICES=1 python supervised_finetuning.py \
     --max_train_samples 10000 \
     --max_eval_samples 10 \
     --model_max_length 4096 \
-    --num_train_epochs 5 \
-    --learning_rate 2e-5 \
+    --num_train_epochs 50 \
+    --learning_rate 1e-3 \
     --warmup_ratio 0.05 \
     --weight_decay 0.05 \
     --logging_strategy steps \
     --logging_steps 10 \
     --eval_steps 50 \
     --evaluation_strategy steps \
-    --save_steps 500 \
+    --save_steps 100 \
     --save_strategy steps \
-    --save_total_limit 13 \
+    --save_total_limit 10 \
     --gradient_accumulation_steps 1 \
     --preprocessing_num_workers 4 \
     --output_dir outputs-sft-chatglm3-knowyourself \
